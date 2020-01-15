@@ -66,7 +66,6 @@ def setMotorSpeed():
 		speedright = 1
 	Motors.setMotorLeft(speedleft)
 	Motors.setMotorRight(speedright)
-	printscreen()
 
 def anglexx():
 	global angle
@@ -75,6 +74,7 @@ def anglexx():
 		pass
 	else:
 		setMotorSpeed()
+		printscreen()
 	t = threading.Timer(0.1, anglexx)
 	t.start()
 
@@ -134,4 +134,6 @@ while True:
 	# to set it blank to save the next key pressed by the user
 	char = ""
 	setMotorSpeed()
+	printscreen()
+
 # End
