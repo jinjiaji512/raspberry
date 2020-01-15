@@ -3,7 +3,7 @@
 # Version:	1.0
 # Homepage:	www.raspberry-pi-car.com
 
-import sys, tty, termios, os, time
+import sys, tty, termios, os, time, thread
 from L298NHBridge import HBridge
 
 speed = 0
@@ -51,6 +51,10 @@ def printscreen():
 
 def setMotorSpeed():
 	# generate the left motor speed and right motor speed with the speed and angle
+	global speedleft
+	global speedright
+	global speed
+	global angle
 	speedleft = speed - angle * speed 
 	speedright = speed + angle * speed
 	if speedleft < -1:
@@ -63,11 +67,19 @@ def setMotorSpeed():
 		speedright = 1
 	Motors.setMotorLeft(speedleft)
 	Motors.setMotorRight(speedright)
-
-	print "speedleft",speedleft
-	print "speedright",speedright
 	printscreen()
 
+def anglexx():
+	global angle
+	global timestamp
+	while True:
+		now = time.time()
+		if now - timestamp > 100:
+			angle = angle * 0.9
+			timestamp = now
+
+
+thread.start_new_thread( anglexx, ("Thread-1", 2, ) )
 
 while True:
     # Keyboard character retrieval method. This method will save
@@ -115,11 +127,6 @@ while True:
 		print("Program Ended")
 		break
 	
-	now = time.time()
-	if now - timestamp > 100:
-		angle = angle * 0.95
-		timestamp = now
-
 	# The keyboard character variable char has to be set blank. We need
 	# to set it blank to save the next key pressed by the user
 	char = ""
