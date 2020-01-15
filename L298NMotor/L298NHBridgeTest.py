@@ -50,8 +50,8 @@ def printscreen():
 
 def setMotorSpeed():
 	# generate the left motor speed and right motor speed with the speed and angle
-	speedleft = speed - angle
-	speedright = speed + angle
+	speedleft = speed + angle * speed 
+	speedright = speed - angle * speed
 	if speedleft < 0:
 		speedleft = 0
 	if speedleft > 1:
