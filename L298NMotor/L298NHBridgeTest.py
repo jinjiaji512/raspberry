@@ -112,14 +112,14 @@ while True:
 	# The "d" key will toggle the steering right
 	if(char == "a"):		
 		angle = angle - 0.1
-		if angle < -1:
-			angle = -1
+		if angle <= -1:
+			angle = -0.9
 		
 	# The "a" key will toggle the steering left
 	if(char == "d"):
 		angle = angle + 0.1
-		if angle > 1:
-			angle = 1
+		if angle >= 1:
+			angle = 0.9
 
 	# The "x" key will break the loop and exit the program
 	if(char == "x"):
