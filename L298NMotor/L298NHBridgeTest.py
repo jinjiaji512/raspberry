@@ -72,6 +72,7 @@ def setMotorSpeed():
 def anglexx():
 	global angle
 	global timestamp
+	time.sleep(10)
 	while True:
 		now = time.time()
 		if now - timestamp > 100:
