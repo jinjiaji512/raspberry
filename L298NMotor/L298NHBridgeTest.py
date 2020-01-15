@@ -37,7 +37,7 @@ def getch():
 
 def printscreen():
 	# Print the motor speed just for interest
-	# os.system('clear')
+	os.system('clear')
 	print("w/s: direction")
 	print("a/d: steering")
 	print("q: stops the motors")
