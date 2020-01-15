@@ -77,9 +77,10 @@ def anglexx():
 		if now - timestamp > 100:
 			angle = angle * 0.9
 			timestamp = now
+			setMotorSpeed()
 
 
-thread.start_new_thread( anglexx, ("Thread-1", 2, ) )
+thread.start_new_thread( anglexx, () )
 
 while True:
     # Keyboard character retrieval method. This method will save
