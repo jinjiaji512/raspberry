@@ -73,9 +73,11 @@ def anglexx():
 	angle = angle * 0.9
 	print "new angle",angle
 	setMotorSpeed()
+	t = threading.Timer(0.01, anglexx)
+	t.start()
 
-t = threading.Timer(0.01, anglexx)
-t.start()
+
+anglexx()
 
 while True:
     # Keyboard character retrieval method. This method will save
