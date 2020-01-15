@@ -71,6 +71,7 @@ def setMotorSpeed():
 def anglexx():
 	global angle
 	angle = angle * 0.9
+	print "new angle",angle
 	setMotorSpeed()
 
 t = threading.Timer(0.01, anglexx)
