@@ -91,14 +91,17 @@ while True:
 		# synchronize after a turning the motor speed
 		# accelerate the RaPi car
 		speed = speed + 0.1
-		if speed > 1:
-			speed = 1
+		if speed > 0.5:
+			speed = 0.95
 
 	# The car will reverse when the "s" key is pressed
 	if(char == "s"):
-		speed = speed - 0.1
-		if speed < -1:
-			speed = -1
+		if speed > 0:
+			speed = speed - 0.2
+		if speed <= 0:
+			speed = speed - 0.05
+		if speed < -0.5:
+			speed = -0.5
 
 	# Stop the motors
 	if(char == "q"):
