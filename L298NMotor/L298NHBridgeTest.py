@@ -106,6 +106,9 @@ while True:
 	# Stop the motors
 	if(char == "q"):
 		angle = 0 
+
+	# Stop the motors
+	if(char == "e"):
 		speed = 0
 
 
