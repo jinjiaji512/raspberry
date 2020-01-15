@@ -84,8 +84,8 @@ while True:
 	# The car will reverse when the "s" key is pressed
 	if(char == "s"):
 		speed = speed - 0.1
-		if speed < 0:
-			speed = 0
+		if speed < -1:
+			speed = -1
 
 	# Stop the motors
 	if(char == "q"):
