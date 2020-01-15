@@ -80,8 +80,14 @@ def anglexx():
 			timestamp = now
 			setMotorSpeed()
 
+try:
+	thread.start_new_thread( anglexx, () )
+except:
+   print "Error: unable to start thread"
+	 Motors.exit()
+	print("Program Ended")
 
-thread.start_new_thread( anglexx, () )
+
 
 while True:
     # Keyboard character retrieval method. This method will save
