@@ -118,6 +118,7 @@ while True:
 	now = time.time()
 	if now - timestamp > 100:
 		angle = angle * 0.95
+		timestamp = now
 
 	# The keyboard character variable char has to be set blank. We need
 	# to set it blank to save the next key pressed by the user
