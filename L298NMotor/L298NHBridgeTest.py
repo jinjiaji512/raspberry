@@ -3,7 +3,7 @@
 # Version:	1.0
 # Homepage:	www.raspberry-pi-car.com
 
-import sys, tty, termios, os, time, thread
+import sys, tty, termios, os, time, threading
 from L298NHBridge import HBridge
 
 speed = 0
@@ -80,10 +80,8 @@ def anglexx():
 			timestamp = now
 			setMotorSpeed()
 
-try:
-	thread.start_new_thread( anglexx, () )
-except:
-	Motors.exit()
+t = threading.Timer(0.01, anglexx)
+t.start()
 
 while True:
     # Keyboard character retrieval method. This method will save
