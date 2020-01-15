@@ -10,7 +10,6 @@ speed = 0
 angle = 0
 speedleft = 0
 speedright = 0
-timestamp = 0
 
 Motors = HBridge(17, 18, 27, 22, 23, 24)
 # Instructions for when the user has an interface
@@ -71,14 +70,8 @@ def setMotorSpeed():
 
 def anglexx():
 	global angle
-	global timestamp
-	time.sleep(10)
-	while True:
-		now = time.time()
-		if now - timestamp > 100:
-			angle = angle * 0.9
-			timestamp = now
-			setMotorSpeed()
+	angle = angle * 0.9
+	setMotorSpeed()
 
 t = threading.Timer(0.01, anglexx)
 t.start()
