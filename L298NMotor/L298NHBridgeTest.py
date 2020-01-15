@@ -83,11 +83,7 @@ def anglexx():
 try:
 	thread.start_new_thread( anglexx, () )
 except:
-  print "Error: unable to start thread"
 	Motors.exit()
-	print("Program Ended")
-
-
 
 while True:
     # Keyboard character retrieval method. This method will save
