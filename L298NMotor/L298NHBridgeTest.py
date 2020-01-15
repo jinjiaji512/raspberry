@@ -62,6 +62,10 @@ def setMotorSpeed():
 		speedright = 1
 	Motors.setMotorLeft(speedleft)
 	Motors.setMotorRight(speedright)
+	print "speedleft",speedleft
+	print "speedright",speedright
+	printscreen()
+
 
 
 while True:
@@ -90,13 +94,13 @@ while True:
 
 
 	# The "d" key will toggle the steering right
-	if(char == "d"):		
+	if(char == "a"):		
 		angle = angle - 0.1
 		if angle < -1:
 			angle = -1
 		
 	# The "a" key will toggle the steering left
-	if(char == "a"):
+	if(char == "d"):
 		angle = angle + 0.1
 		if angle > 1:
 			angle = 1
@@ -114,5 +118,4 @@ while True:
 	# to set it blank to save the next key pressed by the user
 	char = ""
 	setMotorSpeed()
-	printscreen()
 # End
