@@ -3,13 +3,14 @@
 # Version:	1.0
 # Homepage:	www.raspberry-pi-car.com
 
-import sys, tty, termios, os
+import sys, tty, termios, os, time
 from L298NHBridge import HBridge
 
 speed = 0
 angle = 0
 speedleft = 0
 speedright = 0
+timestamp = 0
 
 Motors = HBridge(17, 18, 27, 22, 23, 24)
 # Instructions for when the user has an interface
@@ -62,10 +63,10 @@ def setMotorSpeed():
 		speedright = 1
 	Motors.setMotorLeft(speedleft)
 	Motors.setMotorRight(speedright)
+
 	print "speedleft",speedleft
 	print "speedright",speedright
 	printscreen()
-
 
 
 while True:
@@ -114,6 +115,10 @@ while True:
 		print("Program Ended")
 		break
 	
+	now = time.time()
+	if now - timestamp > 100:
+		angle = angle * 0.95
+
 	# The keyboard character variable char has to be set blank. We need
 	# to set it blank to save the next key pressed by the user
 	char = ""
