@@ -70,9 +70,13 @@ def setMotorSpeed():
 
 def anglexx():
 	global angle
-	angle = angle * 0.9
-	print "new angle",angle
-	setMotorSpeed()
+	angle = angle * 0.8
+	if angle == 0 :
+		pass
+	else:
+		print "new angle",angle
+		os.system('clear')
+		setMotorSpeed()
 	t = threading.Timer(0.1, anglexx)
 	t.start()
 
