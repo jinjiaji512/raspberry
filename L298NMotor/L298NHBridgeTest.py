@@ -67,19 +67,19 @@ def setMotorSpeed():
 	Motors.setMotorLeft(speedleft)
 	Motors.setMotorRight(speedright)
 
-def anglexx():
-	global angle
-	angle = angle * 0.8
-	if angle == 0 :
-		pass
-	else:
-		setMotorSpeed()
-		printscreen()
-	t = threading.Timer(0.1, anglexx)
-	t.start()
+# def anglexx():
+# 	global angle
+# 	angle = angle - 0.1
+# 	if angle == 0 :
+# 		pass
+# 	else:
+# 		setMotorSpeed()
+# 		printscreen()
+# 	t = threading.Timer(0.1, anglexx)
+# 	t.start()
 
 
-anglexx()
+# anglexx()
 
 while True:
     # Keyboard character retrieval method. This method will save
